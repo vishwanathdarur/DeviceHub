@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-#include "/home/vishwa/Project/DeviceHub/Client/include/commonfunctions.hpp"
-#include "/home/vishwa/Project/DeviceHub/Client/include/client.hpp"
+#include "commonfunctions.hpp"
+#include "client.hpp"
 
 using namespace std;
 
@@ -18,7 +18,7 @@ void Connection::createuniqueid() {
     string name;
     cout << "Enter your name: " << endl;
     cin >> name;
-    // Client.SendData(name);
+    Client.SendData(name);
     string uniqueid="0000000001";
     FILE* f=fopen("/home/vishwa/Project/DeviceHub/Client/uniqueid.txt","a");
     fprintf(f,"%s",uniqueid.c_str());
@@ -32,4 +32,5 @@ string Connection::readuniqueid() {
     fclose(f);
     return string(buffer);
 }
+
 

@@ -3,7 +3,7 @@
 #include "sys/socket.h"
 #include "netinet/in.h"
 #include "arpa/inet.h"
-#include "/home/vishwa/Project/DeviceHub/Client/include/client.hpp"
+#include "client.hpp"
 using namespace std;
 
 Client::Client() {

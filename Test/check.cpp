@@ -7,9 +7,6 @@ using namespace std;
 
 int main() {
     Server server;
-    string key="0000000001";
-    ConnectDB db;
-    db.put(key,"TestUser");
-    cout << db.get(key) << endl;
+    server.ReceiveData();
     return 0;
 }
