@@ -1,8 +1,8 @@
 
 g++ -w \
-    /data/data/com.termux/files/home/Project/DeviceHub/Client/src/*.cpp \
-    /data/data/com.termux/files/home/Project/DeviceHub/Client/main.cpp \
-    -I /data/data/com.termux/files/home/Project/DeviceHub/Client/include
+    /data/data/com.termux/files/home/DeviceHub/Client/src/*.cpp \
+    /data/data/com.termux/files/home/DeviceHub/Client/main.cpp \
+    -I /data/data/com.termux/files/home/DeviceHub/Client/include \
     -o client_build
 
 

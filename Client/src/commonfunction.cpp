@@ -1,5 +1,8 @@
-#include <bits/stdc++.h>
 #include "commonfunctions.hpp"
+#include <iostream>
+#include <string>
+#include <cstdio>
+#include <cstdlib>
 #include "client.hpp"
 
 using namespace std;
