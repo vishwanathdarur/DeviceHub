@@ -25,15 +25,13 @@ void Server::ReceiveData() {
             int thread_id = omp_get_thread_num();
             cout << "Thread " << thread_id << " waiting for connection...\n";
             int clientSocket = accept(serverSocket, nullptr, nullptr);
-            while(true) {
-                n++;
-                if(n>=10) break;
-                char buffer[1024] = {0};
-                ssize_t bytes = recv(clientSocket, buffer, sizeof(buffer), 0);
-                cout << "Thread " << thread_id << " received: " << string(buffer, bytes) << endl;
-            }
+            char buffer[1024] = {0};
+            ssize_t bytes = recv(clientSocket, buffer, sizeof(buffer), 0);
+            cout << "Thread " << thread_id << " received: " << string(buffer, bytes) << endl;
         }
     }
+
 }
+
 
 

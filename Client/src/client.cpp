@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include "sys/socket.h"
-#include "netinet/in.h"
-#include "arpa/inet.h"
-#include "client.hpp"
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <client.hpp>
 using namespace std;
 
 Client::Client() {
@@ -26,3 +26,5 @@ std::string Client::receiveData() {
     cout << "Received from server: " << buffer << endl;
     return std::string(buffer);
 }
+
+

@@ -15,6 +15,7 @@ public:
     string exractmessage(string data);
     bool checkvalidmessage(string data);
     vector<string> loadmessages(string key);
+    void decryptmessages(string key);
 private:
     int totalclients=0;
 };

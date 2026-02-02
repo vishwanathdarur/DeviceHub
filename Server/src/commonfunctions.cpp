@@ -53,3 +53,29 @@ string Connection::exractmessage(string data) {
     }
     return z;
 }
+
+void Connection::decryptmessages(string key) {
+    //1. sending clint id pref="10100101"
+    //2. sending clint the list of clients available to chat with pref="10100110"
+    //3. loading clint-clint message history pref="10100111"
+    //4. saving the client message
+    string z="";
+    for(int i=0;i<8;i++) {
+        z+=key[i];
+    }
+    if(z=="10100101") {
+        //send client id
+    } else if(z=="10100110") {
+        //send client the list of clients available to chat with
+    } else if(z=="10100111") {
+        //load client-client message history
+    } else {
+        string key1=key.substr(0,63);
+        string message="";
+        for(int i=63;i<key.size();i++) {
+            message+=key[i];
+        }
+        ConnectDB db;
+        db.put(key,message);
+    }
+}
