@@ -1,40 +1,65 @@
 #include "commonfunctions.hpp"
-#include <iostream>
+#include <fstream>
 #include <string>
 #include <cstdio>
 #include <cstdlib>
 #include "client.hpp"
-
+#include <iostream>
+#include "json.hpp"
 using namespace std;
+using json = nlohmann::json;
 
-bool Connection::hasuniqued() {
-    // FILE* f=fopen("/home/vishwa/Project/DeviceHub/Client/uniqueid.txt","r");
-    // if(f==NULL) return false;
-    // else {
-    //     fclose(f);
-    //     return true;
-    // }
+bool Connection::hasuniqued()
+{
+    std::string path = "Client/data/uniqueid/id.json";
+    std::ifstream f(path);
+    if (!f.is_open())
+    {
+        return false; // file doesn't exist
+    }
+    json j;
+    try
+    {
+        f >> j;
+    }
+    catch (json::parse_error &)
+    {
+        cout << "JSON parse error" << endl;
+        return false; // invalid or empty JSON
+    }
+    cout << j.dump() << endl;
+    if(j["unique-id"]=="")
+    {
+        return false;
+    }
+    return true;
 }
 
 void Connection::createuniqueid() {
-    Client Client;
+    // we are not  informed server yet
+    
     string name;
     cout << "Enter your name: " << endl;
     cin >> name;
-    Client.SendData(name);
     string uniqueId="00000001";
-    // FILE* f=fopen("/home/vishwa/Project/DeviceHub/Client/uniqueid.txt","a");
-    // fprintf(f,"%s",uniqueid.c_str());
-    // fclose(f);   
+    string path="Client/data/uniqueid/id.json";
+    ifstream f(path);
+    json j;
+    f>>j;
+    j["unique-id"]=uniqueId;
+    j["name"]=name; 
+    ofstream o(path);   
+    o << j.dump(4) << endl;
 }
 
 string Connection::readuniqueid() {
-    // FILE* f=fopen("/home/vishwa/Project/DeviceHub/Client/uniqueid.txt","r");
-    // char buffer[100];
-    // fscanf(f,"%s",buffer);
-    // fclose(f);
-    // return string(buffer);
+    string path = "Client/data/uniqueid/id.json";
+    ifstream f(path);
+    json j;
+    f>>j;
+    return j["unique-id"];
 }
+
 
 
 

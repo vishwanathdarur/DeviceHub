@@ -1,0 +1,92 @@
+{
+  "00000001": {
+    "name": "Vishwa",
+    "messages": [
+      {
+        "message": "Hello there!",
+        "date": "2026-02-03",
+        "time": "14:22",
+        "status": "sent",
+        "sent-by": "you"
+      },
+      {
+        "message": "How are you?",
+        "date": "2026-02-03",
+        "time": "14:25",
+        "status": "delivered",
+        "sent-by": "client"
+      },
+      {
+        "message": "Let's meet at 5 PM.",
+        "date": "2026-02-03",
+        "time": "14:30",
+        "status": "read",
+        "sent-by": "you"
+      }
+    ]
+  },
+  "00000002": {
+    "name": "Alex",
+    "messages": [
+      {
+        "message": "Hi!",
+        "date": "2026-02-03",
+        "time": "14:23",
+        "status": "sent",
+        "sent-by": "you"
+      },
+      {
+        "message": "Are you coming to the party?",
+        "date": "2026-02-03",
+        "time": "14:26",
+        "status": "delivered",
+        "sent-by": "client"
+      }
+    ]
+  },
+  "00000003": {
+    "name": "Maya",
+    "messages": [
+      {
+        "message": "Good morning!",
+        "date": "2026-02-03",
+        "time": "08:10",
+        "status": "sent",
+        "sent-by": "you"
+      },
+      {
+        "message": "Did you complete the report?",
+        "date": "2026-02-03",
+        "time": "09:00",
+        "status": "delivered",
+        "sent-by": "client"
+      },
+      {
+        "message": "Please review the slides.",
+        "date": "2026-02-03",
+        "time": "09:15",
+        "status": "read",
+        "sent-by": "you"
+      }
+    ]
+  },
+  "00000004": {
+    "name": "Rohit",
+    "messages": [
+      {
+        "message": "Hey, let's catch up later.",
+        "date": "2026-02-02",
+        "time": "18:00",
+        "status": "sent",
+        "sent-by": "you"
+      },
+      {
+        "message": "Don't forget the meeting tomorrow.",
+        "date": "2026-02-02",
+        "time": "18:15",
+        "status": "delivered",
+        "sent-by": "client"
+      }
+    ]
+  }
+}

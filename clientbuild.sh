@@ -3,6 +3,7 @@
 g++ -w \
   Client/src/client.cpp \
   Client/src/commonfunctions.cpp \
+  Client/src/clientfeature.cpp \
   Client/main.cpp \
   -I /home/vishwa/Project/DeviceHub/Client/include \
   -o client_build 

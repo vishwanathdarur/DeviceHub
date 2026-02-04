@@ -1,5 +1,9 @@
 #include<iostream>
+#include<fstream>
+#include"clientfeature.hpp"
+#include<json.hpp>
 using namespace std;
+using json = nlohmann::json;
 
 void ClientFeature::displayMenu() {
     cout << "Welcome to our local Device Hub \n";
@@ -10,10 +14,14 @@ void ClientFeature::displayMenu() {
 }
 
 void ClientFeature::listConnectedDevices() {
-    cout << "Your connected devices are ";
-    // send a request to server for devices
-
-    // receive from server and display
+    cout << "List of connected devices are \n";
+    string path="Client/data/chatdata/myusers.json";
+    ifstream f(path);
+    json j;
+    f>>j;
+    for (auto& element : j) {
+        cout << "client number: " << element["serial-number"] <<  ", Name: " << element["name"] << "\n";
+    }
 }
 
 void ClientFeature::sendmessageToDevice() {
@@ -21,12 +29,23 @@ void ClientFeature::sendmessageToDevice() {
     int num; cin >> num;
     cout << "Enter Your message \n";
     string message; cin >> message;
-
-
-    // send this message this to  the client
-
+    string id="";
+    string path="Client/data/chatdata/myusers.json";
+    ifstream f(path);
+    json j;
+    f>>j;       
+    for (auto& element : j) {
+        if(element["serial-num"]==to_string(num))
+        {
+            id=element["unique-id"];
+            break;
+        }
+    }
+    cout << "Sending message to client with ID: " << id << "\n";
+    // we got the id to send the message
 
     // receive a feedback from client regarding message
+
     // cout that server message either successfull or not
 }
 
@@ -36,8 +55,35 @@ void ClientFeature::loadmessage() {
     int num; cin >> num;
     cout << "Your messages are \n";
     // get a message from the client
-    
-    // display the messages
+
+    string path1="Client/data/chatdata/message.json";
+    ifstream file(path1);
+    json j;
+    file >> j;
+    string path="Client/data/chatdata/myusers.json";
+    ifstream f(path);
+    json j2;
+    f>>j2;
+    string id="";
+    for (auto& element : j2) {
+        cout << element["serial-num"] << "\n";
+        if(element["serial-num"]==to_string(num))
+        {
+            id=element["unique-id"];   
+            break;
+        }
+    }   
+    cout << id << "\n";
+    if (j.contains(id))
+    {
+        json userData = j[id]; // directly access the unique ID
+        for (auto &msg : userData["messages"])
+        {
+            std::cout << msg["message"] << " | "
+                      << msg["date"] << " " << msg["time"] << " | "
+                      << msg["status"] <<  " | Sent by: " << msg["sent-by"] << "\n";
+        }
+    }
 }
 
 
