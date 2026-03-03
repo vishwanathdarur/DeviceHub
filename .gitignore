@@ -1,1 +1,13 @@
 **/*.json
+build/
+a.out
+client_build
+full_build
+test_run
+test_run1
+devicehubdb/wal.log
+.codex
+.codex/
+venv/
+*.log
+*.out

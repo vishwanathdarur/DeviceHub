@@ -1,12 +1,16 @@
-#include <bits/stdc++.h>
-#include "/home/vishwa/Project/DeviceHub/Client/include/client.hpp"
+#include <iostream>
+#include <stdexcept>
+
 #include "/home/vishwa/Project/DeviceHub/Server/include/server.hpp"
-#include "/home/vishwa/Project/DeviceHub/Server/include/commonfunctions.hpp"
-#include "/home/vishwa/Project/DeviceHub/Server/include/connectdb.hpp"
-using namespace std;
 
 int main() {
-    Server server;
-    server.ReceiveData();
+    try {
+        Server server;
+        server.ReceiveData();
+    } catch (const std::exception& ex) {
+        std::cerr << "Server failed: " << ex.what() << '\n';
+        return 1;
+    }
+
     return 0;
 }
