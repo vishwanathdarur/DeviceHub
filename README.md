@@ -28,10 +28,6 @@ The code is best described as a messaging prototype, not a finished collaboratio
 - Partially scaffolded: unique IDs, message-history JSON loading, database wrapper code.
 - Not fully implemented end-to-end: authentication, session management, file/media sharing.
 
-## Resume-Safe Bullet
-
-Built a C++ socket-based DeviceHub prototype that demonstrates local client/server message delivery, with exploratory Flask UI and persistence scaffolding for future chat history storage.
-
 ## Architecture
 
 ```mermaid
@@ -121,27 +117,10 @@ Client sent: Ping from README demo
 Server replied: DeviceHub server acknowledged: Ping from README demo
 ```
 
-## Demo Flow
-
-1. Start the demo server.
-2. Launch the demo client with a message payload.
-3. The client opens a TCP connection to `127.0.0.1:8080`.
-4. The server receives the payload and prints it to the terminal.
-5. The server sends an acknowledgement back to the client.
-6. The client prints the acknowledgement and exits cleanly.
 
 ## Demo Screenshot
 
 ![DeviceHub terminal demo](docs/devicehub-demo.png)
-
-## Known Limitations
-
-- The verified path is a single-message localhost demo, not a multi-user production system.
-- Authentication and session management are not implemented end-to-end.
-- `sendmedia()` and `getmedia()` are placeholders only.
-- The web UI is a prototype shell and is not wired into the verified socket demo flow.
-- The persistence wrapper exists, but durable chat storage is not part of the working demo path.
-- Several source files still use hard-coded absolute include paths, which makes portability weaker than it should be.
 
 ## Future Work
 
